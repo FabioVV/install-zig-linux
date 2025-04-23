@@ -1,2 +1,4 @@
-# install-zig-linux
-A small bashscript for installing the latest Zig compiler on a linux system
+# Install zig on linux easily
+
+This is a simple bashscript i made for myself for installing Zig on my linux system
+Tested only on Open-suse Tumbleweed
