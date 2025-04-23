@@ -1,7 +1,5 @@
 #!/bin/bash
 
-## For Open-suse tumbleweed
-
 ZIG_VERSION = zig-linux-x86_64-0.15.0-dev.379+ffd85ffcd.tar.xz
 
 
