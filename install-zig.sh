@@ -1,15 +1,26 @@
-#!/bin/bash
+!/bin/bash
 
-ZIG_VERSION = zig-linux-x86_64-0.15.0-dev.379+ffd85ffcd.tar.xz
+ZIG_VERSION=zig-x86_64-linux-0.15.0-dev.889+b8ac740a1.tar.xz
+ZIG_EXTRACTED=zig-x86_64-linux-0.15.0-dev.889+b8ac740a1
 
+wget https://ziglang.org/builds/${ZIG_VERSION} || {
+  echo "Download failed"
+  exit 1
+}
 
-wget https://ziglang.org/builds/${ZIG_VERSION} || { echo "Download failed"; }
+tar -xvJf ${ZIG_VERSION} || {
+  echo "Extraction failed"
+  exit 1
+}
 
-tar xvf ${ZIG_VERSION} || { echo "Extraction failed"; }
 rm -rf ${ZIG_VERSION}
-mv ${ZIG_VERSION} /usr/local/zig
 
-echo "export PATH=\"/usr/local/zig:\$PATH\"" >> ~/.bashrc
+mv ${ZIG_EXTRACTED} /usr/local/zig || {
+  echo "Move failed"
+  exit 1
+}
+
+echo 'export PATH="/usr/local/zig:$PATH"' >>~/.bashrc
 
 source ~/.bashrc
 
